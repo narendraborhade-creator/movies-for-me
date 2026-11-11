@@ -1,0 +1,11 @@
+.git
+.github
+screenshots/
+build/
+dist/
+index.js
+preload.js
+popout-preload.js
+src/ipc/
+*.bmp
+*.md

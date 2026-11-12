@@ -1,4 +1,4 @@
-// -- Streambert main process entry point ---------------------------------------
+// -- Movies For Me main process entry point ---------------------------------------
 // Responsible for: window creation, session setup, ad-blocking, scheduled
 // backup trigger, and app lifecycle. All heavy IPC logic lives in src/ipc/.
 

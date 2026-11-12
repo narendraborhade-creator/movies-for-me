@@ -134,7 +134,7 @@ export default function SetupScreen({ onSave, onSkip }) {
         <div className="apikey-logo">
           <StreambertLogo />
         </div>
-        <div className="apikey-title">STREAMBERT</div>
+        <div className="apikey-title">MOVIES FOR ME</div>
         <p className="apikey-sub">
           Enter your <strong>free</strong> TMDB{" "}
           <strong>Read Access Token</strong> to get started.
@@ -146,12 +146,11 @@ export default function SetupScreen({ onSave, onSkip }) {
           >
             themoviedb.org → Settings → API
           </ExternalLink>{" "}
-          and copy the <em>API Read Access Token</em> (the long JWT, not the
-          shorter API Key below).
+          and copy the <em>API Read Access Token</em> (or 32-character API Key).
           <br />
           <ExternalLink
             className="apikey-link"
-            href="https://github.com/truelockmc/streambert/blob/main/tmdb-tutorial.md"
+            href="https://github.com/narendraborhade-creator/movies-for-me/blob/main/tmdb-tutorial.md"
           >
             Step-by-step guide on how to get that Token
           </ExternalLink>

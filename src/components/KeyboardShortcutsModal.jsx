@@ -243,12 +243,16 @@ export default function KeyboardShortcutsModal({ onClose }) {
             </div>
           </div>
           <a
-            href="https://github.com/truelockmc/streambert"
+            href="https://github.com/narendraborhade-creator/movies-for-me"
             onClick={(e) => {
               e.preventDefault();
-              window.electron?.openExternal(
-                "https://github.com/truelockmc/streambert",
-              );
+              if (window.electron?.openExternal) {
+                window.electron.openExternal(
+                  "https://github.com/narendraborhade-creator/movies-for-me",
+                );
+              } else {
+                window.open("https://github.com/narendraborhade-creator/movies-for-me", "_blank");
+              }
             }}
             style={{
               display: "inline-flex",

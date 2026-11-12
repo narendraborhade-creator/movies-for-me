@@ -111,7 +111,7 @@ function injectTitlebar() {
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",
   });
-  label.textContent = "STREAMBERT";
+  label.textContent = "MOVIES FOR ME";
   bar.appendChild(label);
 
   // -- Buttons ---------------------------------------------------------------

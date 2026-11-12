@@ -1218,7 +1218,7 @@ export default function App() {
               color: "#fff",
             }}
           >
-            <span>🎉 Streambert v{updateBanner.latest} is available!</span>
+            <span>🎉 Movies For Me v{updateBanner.latest} is available!</span>
             <button
               onClick={() => setShowUpdateModal(true)}
               style={{

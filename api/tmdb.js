@@ -55,7 +55,7 @@ export default async function handler(req, res) {
     const headers = {
       Host: "api.themoviedb.org",
       Accept: "application/json",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Streambert/2.7.0",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) MoviesForMe/2.7.0",
     };
     if (authHeader) {
       headers.Authorization = authHeader;

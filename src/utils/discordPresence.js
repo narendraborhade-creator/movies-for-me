@@ -6,8 +6,8 @@ import { storage, STORAGE_KEYS, isElectron } from "./storage";
 
 // Small badge shown as the "small_image" next to the cover.
 const APP_ICON_URL =
-  "https://raw.githubusercontent.com/truelockmc/streambert/main/public/icon.png";
-const GITHUB_URL = "https://github.com/truelockmc/streambert";
+  "https://raw.githubusercontent.com/narendraborhade-creator/movies-for-me/main/public/logo.svg";
+const GITHUB_URL = "https://github.com/narendraborhade-creator/movies-for-me";
 
 export function readDiscordRpcSettings() {
   return {
@@ -30,7 +30,7 @@ function baseAssets(posterUrl, settings) {
   if (settings.showCover && posterUrl) {
     assets.large_image = posterUrl;
     assets.small_image = APP_ICON_URL;
-    assets.small_text = "Streambert";
+    assets.small_text = "Movies For Me";
   } else {
     assets.large_image = APP_ICON_URL;
   }
@@ -39,7 +39,7 @@ function baseAssets(posterUrl, settings) {
 
 function buttons(settings) {
   return settings.showButton
-    ? [{ label: "Watch media for free", url: GITHUB_URL }]
+    ? [{ label: "Watch movies and shows free", url: GITHUB_URL }]
     : undefined;
 }
 
@@ -56,11 +56,11 @@ export function sendWatchingActivity(info, settings) {
 
   const activity = {
     type: 3, // "Watching"
-    details: info.title?.slice(0, 128) || "Streambert",
-    state: (info.subtitle || "Streambert").slice(0, 128),
+    details: info.title?.slice(0, 128) || "Movies For Me",
+    state: (info.subtitle || "Movies For Me").slice(0, 128),
     assets: {
       ...baseAssets(info.posterUrl, settings),
-      large_text: info.title?.slice(0, 128) || "Streambert",
+      large_text: info.title?.slice(0, 128) || "Movies For Me",
     },
   };
   if (settings.showTimestamp && info.startedAt) {
@@ -79,7 +79,7 @@ export function sendIdleActivity(settings) {
   const activity = {
     type: 3,
     details: "Idling",
-    assets: { large_image: APP_ICON_URL, large_text: "Streambert" },
+    assets: { large_image: APP_ICON_URL, large_text: "Movies For Me" },
   };
   const btns = buttons(settings);
   if (btns) activity.buttons = btns;

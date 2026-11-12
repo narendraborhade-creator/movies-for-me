@@ -40,8 +40,8 @@
     "vite": "^7.3.1"
   },
   "build": {
-    "appId": "com.truelockmc.streambert",
-    "productName": "Streambert",
+    "appId": "com.narendraborhade.moviesforme",
+    "productName": "Movies For Me",
     "asar": true,
     "compression": "normal",
     "directories": {
@@ -96,7 +96,7 @@
       "createStartMenuShortcut": true,
       "selectPerMachineByDefault": false,
       "license": "LICENSE",
-      "uninstallDisplayName": "Uninstall Streambert",
+      "uninstallDisplayName": "Uninstall Movies For Me",
       "installerSidebar": "public/installer-sidebar.bmp"
     },
     "win": {
@@ -162,11 +162,11 @@
       "icon": "public/sized",
       "desktop": {
         "entry": {
-          "Name": "Streambert",
-          "Comment": "Streambert Desktop App",
+          "Name": "Movies For Me",
+          "Comment": "Movies For Me Streaming App",
           "Categories": "AudioVideo;Video;Player;Multimedia;Internet;",
-          "Icon": "streambert",
-          "StartupWMClass": "Streambert"
+          "Icon": "movies-for-me",
+          "StartupWMClass": "Movies For Me"
         }
       }
     },

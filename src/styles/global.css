@@ -4135,3 +4135,570 @@ html[data-win-titlebar][data-maximized] .main {
 .episode-check-item:hover {
     color: var(--text) !important;
 }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   📱 MOBILE & RESPONSIVE DESIGN (Phones & Tablets)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Base helper rules for mobile navigation (hidden by default on desktop) */
+.mobile-topbar {
+    display: none;
+}
+
+.mobile-bottom-nav {
+    display: none;
+}
+
+/* Base touch improvements */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button, a, input, select {
+    touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+    /* ── Mobile Layout & Structure ────────────────────────────────────────── */
+    :root {
+        --sidebar: 0px;
+    }
+
+    html, body {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        height: auto !important;
+        min-height: 100% !important;
+        width: 100% !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #root {
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Hide desktop sidebar on mobile */
+    .sidebar {
+        display: none !important;
+    }
+
+    /* Show Mobile Top Bar */
+    .mobile-topbar {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: calc(54px + env(safe-area-inset-top, 0px));
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-left: 16px;
+        padding-right: 16px;
+        background: rgba(15, 15, 17, 0.94);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        align-items: center;
+        justify-content: space-between;
+        z-index: 990;
+    }
+
+    .mobile-topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+    }
+
+    .mobile-logo-img {
+        width: 28px;
+        height: 28px;
+        display: block;
+        filter: drop-shadow(0 0 6px rgba(229, 9, 20, 0.5));
+    }
+
+    .mobile-app-title {
+        font-family: var(--font-display);
+        font-size: 22px;
+        letter-spacing: 0.5px;
+        color: var(--text);
+        line-height: 1;
+    }
+
+    .mobile-topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .mobile-header-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--surface2);
+        color: var(--text2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.15s ease;
+    }
+
+    .mobile-header-btn:active {
+        background: var(--surface3);
+        color: var(--red);
+        transform: scale(0.95);
+    }
+
+    .mobile-header-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Show Mobile Bottom Navigation */
+    .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: calc(60px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        background: rgba(14, 14, 16, 0.95);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-top: 1px solid var(--border);
+        align-items: center;
+        justify-content: space-around;
+        z-index: 990;
+    }
+
+    .mobile-nav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        background: transparent;
+        border: none;
+        color: var(--text3);
+        font-size: 10px;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 6px 0;
+        transition: color 0.15s ease;
+    }
+
+    .mobile-nav-item svg {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.15s ease;
+    }
+
+    .mobile-nav-item:active svg {
+        transform: scale(0.9);
+    }
+
+    .mobile-nav-item.active {
+        color: var(--red);
+        font-weight: 600;
+    }
+
+    .mobile-nav-badge {
+        position: absolute;
+        top: -4px;
+        right: -8px;
+        min-width: 15px;
+        height: 15px;
+        background: var(--red);
+        color: #fff;
+        border-radius: 8px;
+        font-size: 9px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4px;
+        box-shadow: 0 0 6px rgba(229, 9, 20, 0.6);
+    }
+
+    /* Adjust Main Container for Mobile */
+    .main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-y: visible !important;
+        padding-top: calc(54px + env(safe-area-inset-top, 0px)) !important;
+        padding-bottom: calc(70px + env(safe-area-inset-bottom, 12px)) !important;
+    }
+
+    /* ── Hero Banner ──────────────────────────────────────────────────────── */
+    .hero {
+        height: 380px !important;
+        max-height: 52vh !important;
+    }
+
+    .hero-content {
+        padding: 16px !important;
+        max-width: 100% !important;
+        bottom: 0 !important;
+    }
+
+    .hero-type {
+        font-size: 10px !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .hero-title {
+        font-size: 30px !important;
+        line-height: 1.1 !important;
+        margin-bottom: 8px !important;
+        word-break: break-word;
+    }
+
+    .hero-meta {
+        font-size: 12px !important;
+        gap: 12px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .hero-overview {
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 12px !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .hero-actions {
+        display: flex !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .hero-actions .btn {
+        flex: 1 !important;
+        justify-content: center !important;
+        padding: 10px 14px !important;
+        font-size: 13px !important;
+    }
+
+    /* ── Sections & Cards ─────────────────────────────────────────────────── */
+    .section {
+        padding: 20px 14px !important;
+    }
+
+    .section-title {
+        font-size: 17px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)) !important;
+        gap: 8px !important;
+    }
+
+    .card {
+        border-radius: 6px !important;
+    }
+
+    .card-info {
+        padding: 6px 8px !important;
+    }
+
+    .card-title {
+        font-size: 12px !important;
+        line-height: 1.3 !important;
+    }
+
+    .card-meta {
+        font-size: 11px !important;
+    }
+
+    /* ── Movie / TV Detail Page ───────────────────────────────────────────── */
+    .detail-hero {
+        height: auto !important;
+        min-height: unset !important;
+    }
+
+    .detail-content {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 20px 14px !important;
+        gap: 16px !important;
+    }
+
+    .detail-poster {
+        width: 135px !important;
+        max-width: 44vw !important;
+        aspect-ratio: 2/3 !important;
+        margin: 0 auto !important;
+        border-radius: 8px !important;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7) !important;
+    }
+
+    .detail-info {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .detail-title {
+        font-size: 26px !important;
+        line-height: 1.15 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .genres {
+        justify-content: center !important;
+        gap: 6px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .genre-tag {
+        font-size: 11px !important;
+        padding: 3px 8px !important;
+    }
+
+    .detail-meta {
+        justify-content: center !important;
+        gap: 12px !important;
+        font-size: 12px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .detail-overview {
+        text-align: left !important;
+        font-size: 13px !important;
+        line-height: 1.55 !important;
+        margin-bottom: 16px !important;
+    }
+
+    .detail-actions {
+        justify-content: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .detail-actions .btn {
+        min-height: 42px !important;
+        font-size: 13px !important;
+        padding: 9px 14px !important;
+    }
+
+    /* ── Player on Mobile ─────────────────────────────────────────────────── */
+    .player-wrap {
+        width: 100% !important;
+        border-radius: 8px !important;
+        margin: 0 auto !important;
+        overflow: hidden !important;
+    }
+
+    .player-wrap::before {
+        padding-top: 56.25% !important; /* 16:9 ratio */
+    }
+
+    .player-wrap iframe {
+        border: none !important;
+    }
+
+    /* Always show player overlay control buttons on touch devices */
+    .player-wrap .player-overlay-btn,
+    .player-wrap .player-overlay-group {
+        opacity: 1 !important;
+    }
+
+    .player-source-btn {
+        font-size: 11px !important;
+        padding: 4px 8px !important;
+    }
+
+    /* ── TV Seasons & Episodes on Mobile ──────────────────────────────────── */
+    .season-selector {
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        padding-bottom: 8px !important;
+        margin-bottom: 16px !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .season-selector::-webkit-scrollbar {
+        display: none;
+    }
+
+    .season-selector .season-btn,
+    .season-selector button {
+        flex-shrink: 0 !important;
+        padding: 7px 14px !important;
+        font-size: 12px !important;
+        border-radius: 20px !important;
+        white-space: nowrap !important;
+    }
+
+    .episodes-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    .episode-card {
+        padding: 10px !important;
+        gap: 10px !important;
+        border-radius: 8px !important;
+    }
+
+    .episode-thumb {
+        width: 95px !important;
+        height: 54px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .episode-name {
+        font-size: 13px !important;
+    }
+
+    .episode-num {
+        font-size: 11px !important;
+    }
+
+    .episode-desc {
+        font-size: 11px !important;
+        -webkit-line-clamp: 2 !important;
+    }
+
+    /* ── Search Modal Fullscreen on Mobile ────────────────────────────────── */
+    .modal-overlay {
+        padding: 0 !important;
+        align-items: flex-start !important;
+    }
+
+    .search-box {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100% !important;
+        max-height: 100vh !important;
+        border-radius: 0 !important;
+        border: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .search-input-wrap {
+        padding: 12px 14px !important;
+    }
+
+    .search-input {
+        font-size: 16px !important; /* Prevents auto-zoom in iOS Safari */
+    }
+
+    .search-filters-bar {
+        padding: 8px 12px !important;
+    }
+
+    .search-type-tabs {
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        padding-bottom: 4px !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .search-type-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .search-genre-chips {
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        padding: 4px 0 !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .search-genre-chips::-webkit-scrollbar {
+        display: none;
+    }
+
+    .search-results {
+        flex: 1 !important;
+        max-height: unset !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px !important;
+    }
+
+    .search-result {
+        padding: 10px !important;
+        gap: 12px !important;
+    }
+
+    .search-result img {
+        width: 44px !important;
+        height: 64px !important;
+    }
+
+    .search-result-title {
+        font-size: 13px !important;
+    }
+
+    /* ── Modals on Mobile ─────────────────────────────────────────────────── */
+    .trailer-modal,
+    .cast-modal,
+    .blocked-modal {
+        width: 95vw !important;
+        max-width: 95vw !important;
+        border-radius: 10px !important;
+        margin: auto !important;
+    }
+
+    .trailer-modal-header,
+    .cast-modal-header {
+        padding: 12px 14px !important;
+    }
+
+    .cast-modal-body {
+        padding: 14px !important;
+        max-height: 65vh !important;
+    }
+
+    /* ── Library & Settings on Mobile ─────────────────────────────────────── */
+    .library-header {
+        padding: 24px 16px 0 !important;
+    }
+
+    .library-title {
+        font-size: 32px !important;
+    }
+
+    .library-section {
+        padding: 20px 16px !important;
+    }
+
+    /* Settings Page Mobile Adjustments */
+    .settings-topbar {
+        position: relative !important;
+        top: 0 !important;
+        padding: 10px 14px !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+
+    .settings-nav-pills {
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        width: 100% !important;
+        padding-bottom: 6px !important;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+

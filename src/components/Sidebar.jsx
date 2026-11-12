@@ -101,7 +101,27 @@ export default function Sidebar({
   };
 
   return (
-    <div className="sidebar">
+    <>
+      {/* ── Mobile Top Header Bar ── */}
+      <header className="mobile-topbar">
+        <div className="mobile-topbar-left" onClick={() => onNavigate("home")}>
+          <img src="./logo.svg" alt="Movies For Me" className="mobile-logo-img" />
+          <span className="mobile-app-title">Movies For Me</span>
+        </div>
+        <div className="mobile-topbar-right">
+          {canGoBack && (
+            <button className="mobile-header-btn" onClick={onBack} title="Back" aria-label="Back">
+              <BackIcon />
+            </button>
+          )}
+          <button className="mobile-header-btn" onClick={onSearch} title="Search" aria-label="Search">
+            <SearchIcon />
+          </button>
+        </div>
+      </header>
+
+      {/* ── Desktop Sidebar ── */}
+      <div className="sidebar">
       <div
         className="sidebar-logo"
         onClick={() => onNavigate("home")}
@@ -241,6 +261,61 @@ export default function Sidebar({
         )}
       </div>
     </div>
+
+    {/* ── Mobile Bottom Navigation Bar ── */}
+    <nav className="mobile-bottom-nav">
+      <button
+        type="button"
+        className={`mobile-nav-item ${page === "home" ? "active" : ""}`}
+        onClick={() => onNavigate("home")}
+        aria-label="Home"
+      >
+        <HomeIcon />
+        <span>Home</span>
+      </button>
+      <button
+        type="button"
+        className="mobile-nav-item"
+        onClick={onSearch}
+        aria-label="Search"
+      >
+        <SearchIcon />
+        <span>Search</span>
+      </button>
+      <button
+        type="button"
+        className={`mobile-nav-item ${page === "history" ? "active" : ""}`}
+        onClick={() => onNavigate("history")}
+        aria-label="Library"
+      >
+        <HistoryIcon />
+        <span>Library</span>
+      </button>
+      <button
+        type="button"
+        className={`mobile-nav-item ${page === "downloads" ? "active" : ""}`}
+        onClick={() => onNavigate("downloads")}
+        aria-label="Downloads"
+      >
+        <div style={{ position: "relative", display: "inline-flex", alignItems: "center" }}>
+          <DownloadsQueueIcon />
+          {activeDownloads > 0 && (
+            <span className="mobile-nav-badge">{activeDownloads}</span>
+          )}
+        </div>
+        <span>Downloads</span>
+      </button>
+      <button
+        type="button"
+        className={`mobile-nav-item ${page === "settings" ? "active" : ""}`}
+        onClick={() => onNavigate("settings")}
+        aria-label="Settings"
+      >
+        <SettingsIcon />
+        <span>Settings</span>
+      </button>
+    </nav>
+  </>
   );
 }
 
